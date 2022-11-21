@@ -76,9 +76,29 @@ services:
 `docker-compose up --build`
 
 
-#### running test
+#### running tests the pros and the cons, 
+> tl:dr there is no ideal solution :-P
 * assumes you have the container id in hand
-* the CLI way is `docker run <ContainerId> npm run test`
+* the CLI way is `docker run <ContainerId> npm run test -it` to also connect our machine to STDIN
+* while developing also `docker exec -it <containerID> npm run test` could be of use, by doint so, we attach our self to the already running docker and gain hotlreload on changes // *not a perfect solution*
+* we refactored `docker-compose.yaml` to run tests on a second `services`
+* commands are provide to `docker-compose.yaml` like this ` command: ["npm", "run", "test"]`
+* **pro** of this, it is encapsulated, BUT **con** is that all tests are rereun on changes all the time, and we dont have STDIN from `docker exec`, which allowed us top trigger tests manually
+* we tried `docker ps` && `docker attach <containerId>` but we are not able to send to STDIN here
+* another way is `docker exec -it <containerId> sh` which let's us slip directly into the running container and would allow us in another terminal window to `npm run test` and gain the runner options with STDIN
+
+#### running the production version
+* since we don't have a dev web server here, we go with nginx
+* flow is
+  1. use node:alpine
+  2. copy package.josn
+  3. install all depts // Deps ony need to execute build, we would need it, to save 150mb of depts
+  4. `npm run build`
+  5. copy stuff around || serve build directory
+  6. start nginx
+
+
+
 
 
 

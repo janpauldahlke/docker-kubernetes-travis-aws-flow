@@ -10,4 +10,12 @@ services:
       - /home/node/app/node_modules
       - .:/home/node/app
     restart: unless-stopped
-
+  tests:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    volumes: 
+      - /home/node/app/node_modules
+      - .:/home/node/app
+    restart: unless-stopped
+    command: ["npm", "run", "test"]
