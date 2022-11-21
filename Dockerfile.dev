@@ -4,5 +4,7 @@ RUN mkdir -p /home/node/app
 WORKDIR '/home/node/app'
 COPY --chown=node:node package.json .
 RUN npm install
+# altough we mount local volumes, so we could remove it, it does nothing
+# but we keep it to be ready as a reminder how to setup production
 COPY --chown=node:node . .
 CMD [ "npm", "run", "start" ]

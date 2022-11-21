@@ -15,7 +15,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React OR RUST
+          IN RUST WE TRUST. UNTIL FOREVER
         </a>
       </header>
     </div>

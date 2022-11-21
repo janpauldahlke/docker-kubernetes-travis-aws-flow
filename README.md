@@ -52,5 +52,38 @@ The inline chown commands will set ownership of the files you are copying from y
 The end result is that some files and directories will no longer be owned by root, and no npm processes will be run by the root user. Instead, they will all be owned and run by the node user.
 ```
 
+* the final `docker run` with docker volumes
+`docker run -p 3000:3000 -v /home/node/app/node_modules -v $(pwd):/home/node/app 47f680845db3`
+* please take a note, create-react-app is still the one hotreloading, but with docker volumes we can get the update reflected
+
+* we could still improve further on, for this we use docker-compose
+* consider this `docker-compose.yaml`
+```bash
+version: '3'
+services:
+  react-app:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - "3000:3000"
+    volumes: 
+      - /home/node/app/node_modules   #bookmarking node_modules
+      - .:/home/node/app              #mount localfilesystem
+    restart: unless-stopped
+```
+* run it with
+`docker-compose up --build`
+
+
+#### running test
+* assumes you have the container id in hand
+* the CLI way is `docker run <ContainerId> npm run test`
+
+
+
+
+
+
 
 
