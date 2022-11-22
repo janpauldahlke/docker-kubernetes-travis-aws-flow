@@ -10,7 +10,6 @@ RUN npm run build
 ## src is in /app/build/
 ## nginx specific target is /usr/share/nginx/html ##checkout the docs on docker hub 
 FROM nginx
-EXPOSE 80
 COPY --from=builder /app/build /usr/share/nginx/html
 ##default start command is contained in nginx
 
