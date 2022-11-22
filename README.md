@@ -97,7 +97,18 @@ services:
   5. copy stuff around || serve build directory
   6. start nginx
 
+* result runs  with ` docker run -p 8080:80 <TAGNAME::hargbard/nginx-react-app>`
 
+### setting up travis CI -- https://www.travis-ci.com/
+* create account
+* link to github
+* select repo for travis to watch for
+* in our project create a file named `.travis.yaml`
+* look ahead
+  1. tell travis we need a copy of docker running
+  2. build our image using dockerfile.dev
+  3. tell travis how to run testsuite
+  4. tell travis to deploy dockerfile(prod) result to AWS
 
 
 
