@@ -110,6 +110,11 @@ services:
   3. tell travis how to run testsuite
   4. tell travis to deploy dockerfile(prod) result to AWS
 
+* for AWS to work we need some changes
+* renaming the `docker-compose.yml` to `docker-compose-dev.yml`
+* `docker-compose -f docker-compose-dev.yml up`
+* `docker-compose -f docker-compose-dev.yml up --build`
+* `docker-compose -f docker-compose-dev.yml down`
 
 
 
