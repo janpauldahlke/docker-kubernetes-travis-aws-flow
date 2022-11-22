@@ -5,6 +5,10 @@ test('the simple truth', () => {
   expect(true).toBeTruthy();
 });
 
+test('the sadness', () => {
+  const sadness = true;
+  expect(sadness).toBeTruthy();
+});
 
 test('renders the Headline', () => {
   render(<App />);
