@@ -5,17 +5,15 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Hello World. Hot Reloading Docker....
-        </p>
+        <p>Hello World.</p>
+        <p>We come from docker -  github - travis - AWS</p>
         <a
           className="App-link"
           href="https://reactjs.org"
           target="_blank"
           rel="noopener noreferrer"
         >
-          IN RUST WE TRUST. UNTIL FOREVER
+          we deploy, cuz we can
         </a>
       </header>
     </div>
