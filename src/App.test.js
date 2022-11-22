@@ -8,13 +8,13 @@ test('the simple truth', () => {
 
 test('renders the Headline', () => {
   render(<App />);
-  const headline = screen.getByText(/Hello World. Hot Reloading Docker..../i);;
+  const headline = screen.getByText(/Hello World/i);;
   expect(headline).toBeInTheDocument();
 });
 
 
 test('renders learn react link', () => {
   render(<App />);
-  const linkElement = screen.getByText(/IN RUST WE TRUST. UNTIL FOREVER/i);
+  const linkElement = screen.getByText(/we deploy, cuz we can/i);
   expect(linkElement).toBeInTheDocument();
 });
